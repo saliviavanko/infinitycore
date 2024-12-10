@@ -62,8 +62,7 @@ The bot initializes an AI agent using `createAgent` from the `@ai16z/eliza` libr
 The `generateArt` function generates conceptual artwork based on a prompt. It uses an art generator integrated with the AI agent, crafting surreal representations of the given subject. The function returns:
 
 - **`imageUrl`**: The URL of the generated image.
-- **`title`**: The name of the artwork.
-- **`description`**: A short conceptual description of the artwork.
+- **`description`**: A short conceptual text.
 
 ---
 
@@ -71,9 +70,8 @@ The `generateArt` function generates conceptual artwork based on a prompt. It us
 
 The `tweet` function composes and posts tweets featuring the generated artwork. Each tweet includes:
 
-- The artwork's title.
-- A brief conceptual description.
-- Attribution to `$UNIT`.
+- The artwork.
+- A brief conceptual text.
 
 ---
 

@@ -11,7 +11,7 @@ const agent = createAgent({
 });
 
 // Step 2: Generate artwork
-async function generateArt(prompt: string): Promise<{ imageUrl: string; title: string; description: string }> {
+async function generateArt(prompt: string): Promise<{ imageUrl: string; description: string }> {
   const artPrompt = `Art made by virtual construct: ${prompt}`;
   const negativePrompt = 'No realism';
 
@@ -24,8 +24,7 @@ async function generateArt(prompt: string): Promise<{ imageUrl: string; title: s
 
   return {
     imageUrl: generatedArt.url,
-    title: `$UNIT ${prompt}`,
-    description: `A surreal representation of ${prompt}.`,
+    description: `A surreal representation of this text: ${prompt}.`,
   };
 }
 
@@ -34,11 +33,7 @@ async function tweet() {
     const artDetails = await generateArt('portrait');
 
     // Compose the tweet
-    const tweetContent = `
-${artDetails.title}
-
-${artDetails.description}.
-`;
+    const tweetContent = artDetails.description;
 
     // Post the tweet with the artwork
     const tweetResponse = await sendTweet({
@@ -53,4 +48,4 @@ ${artDetails.description}.
 }
 
 // Step 4: Schedule the agent to post 
-setInterval(tweet, 60 * 15 * 1000); // Runs every 15 minutes
+setInterval(tweet, 60 * 10 * 1000); // Runs every 15 minutes
